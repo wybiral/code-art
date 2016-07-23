@@ -51,6 +51,17 @@ function updateParticle(p, nextParticles) {
     p.radius *= 0.998;
     if (p.radius > 0.5) {
         nextParticles.push(p);
+        let splitCutoff = Math.min(0.005, 1.0 / (p.radius * 10));
+        if (Math.random() < splitCutoff) {
+            nextParticles.push({
+                x: p.x,
+                y: p.y,
+                angle: p.angle + Math.random() - 0.5,
+                radius: p.radius * 0.9
+            });
+            p.angle += Math.random() - 0.5;
+            p.radius *= 0.9;
+        }
     } else {
         // Let's have a moment of silence for the loss of this great branch.
         // ...
