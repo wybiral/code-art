@@ -44,6 +44,17 @@ function renderParticle(p) {
 }
 
 function updateParticle(p, nextParticles) {
+    let d = Math.random() * 1.25;
+    p.x += Math.cos(p.angle) * d;
+    p.y += Math.sin(p.angle) * d;
+    p.angle += Math.random() * 0.02 - 0.01;
+    p.radius *= 0.998;
+    if (p.radius > 0.5) {
+        nextParticles.push(p);
+    } else {
+        // Let's have a moment of silence for the loss of this great branch.
+        // ...
+   }
 }
 
 // A newborn branch. Isn't it cute?
