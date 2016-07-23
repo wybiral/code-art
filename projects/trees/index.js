@@ -33,6 +33,14 @@ function mainLoop(particles) {
 }
 
 function renderParticle(p) {
+    let n = 1 + (p.radius * p.radius + Math.PI) | 0;
+    for (let i = 0; i < n; i++) {
+        let a = Math.random() * Math.PI * 2;
+        let r = Math.sqrt(Math.random()) * p.radius;
+        let x = p.x + Math.cos(a) * r;
+        let y = p.y + Math.sin(a) * r;
+        ctx.fillRect(x, y, 1, 1);
+    }
 }
 
 function updateParticle(p, nextParticles) {
