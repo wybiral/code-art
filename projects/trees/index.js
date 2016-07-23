@@ -35,6 +35,14 @@ function mainLoop(particles) {
         updateParticle(particles[i], nextParticles);
     }
 
+    // Nothing lasts forever. Not even these pixels.
+    ctx.fillStyle = 'rgba(255,255,200, 0.05)';
+    let n = (width * height * 0.001) | 0;
+    for (let i = 0; i < n; i++) {
+        let x = Math.random() * width;
+        let y = Math.random() * height;
+        ctx.fillRect(x, y, 1, 1);
+    }
 }
 
 function renderParticle(p) {
