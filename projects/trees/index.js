@@ -24,6 +24,11 @@ function mainLoop(particles) {
         mainLoop(nextParticles);
     });
 
+    let spawnCutoff = width / 1000000;
+    if (Math.random() < spawnCutoff) {
+        nextParticles.push(create());
+    }
+
     ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
     for (let i = 0, len = particles.length; i < len; i++) {
         renderParticle(particles[i]);
