@@ -14,4 +14,26 @@ window.onload = function() {
     ctx = canvas.getContext('2d');
     ctx.fillStyle = 'rgb(255,255,200)';
     ctx.fillRect(0, 0, width, height);
+    mainLoop([]);
 };
+
+function mainLoop(particles) {
+    let nextParticles = [];
+
+    requestAnimationFrame(function() {
+        mainLoop(nextParticles);
+    });
+
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+    for (let i = 0, len = particles.length; i < len; i++) {
+        renderParticle(particles[i]);
+        updateParticle(particles[i], nextParticles);
+    }
+
+}
+
+function renderParticle(p) {
+}
+
+function updateParticle(p, nextParticles) {
+}
