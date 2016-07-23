@@ -14,7 +14,7 @@ window.onload = function() {
     ctx = canvas.getContext('2d');
     ctx.fillStyle = 'rgb(255,255,200)';
     ctx.fillRect(0, 0, width, height);
-    mainLoop([]);
+    mainLoop([create()]);
 };
 
 function mainLoop(particles) {
@@ -36,4 +36,14 @@ function renderParticle(p) {
 }
 
 function updateParticle(p, nextParticles) {
+}
+
+// A newborn branch. Isn't it cute?
+function create() {
+    return {
+        x: Math.random() * width,
+        y: height + 5,
+        angle: -Math.PI / 2,
+        radius: Math.random() * 20 + 20,
+    };
 }
