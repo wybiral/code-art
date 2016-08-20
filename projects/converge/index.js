@@ -17,8 +17,10 @@ window.onload = function() {
 
 function start(ctx, bodies) {
     function loop() {
-        requestAnimationFrame(loop);
-        integrate(bodies);
+        const avgDistance = integrate(bodies);
+        if (avgDistance > 5) {
+            requestAnimationFrame(loop);
+        }
         for (var i = 0; i < bodies.length; i++) {
             var a = bodies[i];
             ctx.strokeStyle = 'rgba(' + a.r + ', ' + a.g + ', ' + a.b + ', 0.1)';
@@ -33,6 +35,7 @@ function start(ctx, bodies) {
 
 function integrate(bodies) {
     const n = bodies.length;
+    let totalDistance = 0.0;
     for (let i = 0; i < n; i++) {
         let a = bodies[i];
         for (let j = i + 1; j < n; j++) {
@@ -48,6 +51,7 @@ function integrate(bodies) {
                 b.xv += (dx / d) * bf;
                 b.yv += (dy / d) * bf;
             }
+            totalDistance += d;
         }
     }
     for (let i = 0; i < n; i++) {
@@ -59,6 +63,7 @@ function integrate(bodies) {
         a.xv *= 0.95;
         a.yv *= 0.95;
     }
+    return totalDistance / (n * n);
 }
 
 function create() {
