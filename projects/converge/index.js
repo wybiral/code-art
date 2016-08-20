@@ -33,7 +33,24 @@ function start(ctx, bodies) {
 
 function integrate(bodies) {
     const n = bodies.length;
-    for (var i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) {
+        let a = bodies[i];
+        for (let j = i + 1; j < n; j++) {
+            let b = bodies[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            const af = b.mass / d;
+            const bf = a.mass / d;
+            if (d > 0.01) {
+                a.xv -= (dx / d) * af;
+                a.yv -= (dy / d) * af;
+                b.xv += (dx / d) * bf;
+                b.yv += (dy / d) * bf;
+            }
+        }
+    }
+    for (let i = 0; i < n; i++) {
         let a = bodies[i];
         a.x0 = a.x;
         a.y0 = a.y;
