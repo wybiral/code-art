@@ -72,8 +72,8 @@ function create() {
         xv: Math.random() * 0.2 - 0.1,
         yv: Math.random() * 0.2 - 0.1,
         mass: 0.01,
-        r: 0,
-        g: 0,
-        b: 0
+        r: 0 | (x / 700) * 255,
+        g: 0 | (1 - ((x + y) / 1400)) * 255,
+        b: 0 | (y / 700) * 255
     };
 }
