@@ -56,6 +56,8 @@ function integrate(bodies) {
         a.y0 = a.y;
         a.x += a.xv;
         a.y += a.yv;
+        a.xv *= 0.95;
+        a.yv *= 0.95;
     }
 }
 
