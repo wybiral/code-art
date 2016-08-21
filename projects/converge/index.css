@@ -8,3 +8,19 @@ body {
     background-color: #666;
     text-align: center;
 }
+
+footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 5px 10px;
+}
+
+footer > a,
+footer > a:link,
+footer > a:active,
+footer > a:visited {
+    color: #000;
+    font-size: 18px;
+    text-decoration: none;
+}
