@@ -1,3 +1,3 @@
 # code-art
 
-[davyw.wtf/code-art](http://davyw.wtf/code-art)
+[davy.wtf/code-art](http://davy.wtf/code-art)
