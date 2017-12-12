@@ -29,7 +29,7 @@ window.onload = () => {
         video.src = window.URL.createObjectURL(stream);
         video.play();
         loop();
-    });
+    }, () => {});
     // Loop forever
     const loop = () => {
         // Copy video to canvas
