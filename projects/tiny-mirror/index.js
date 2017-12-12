@@ -1,3 +1,6 @@
+// Handle FF
+navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia;
+
 window.onload = () => {
     // Create favicon link element
     const favicon = document.createElement('link');
