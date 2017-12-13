@@ -36,7 +36,7 @@ function mainLoop(particles) {
     }
 
     // Nothing lasts forever. Not even these pixels.
-    ctx.fillStyle = 'rgba(255,255,200, 0.05)';
+    ctx.fillStyle = 'rgba(255, 255, 200, 0.05)';
     let n = (width * height * 0.001) | 0;
     for (let i = 0; i < n; i++) {
         let x = Math.random() * width;
@@ -64,9 +64,11 @@ function updateParticle(p, nextParticles) {
     p.angle += Math.random() * 0.02 - 0.01;
     p.radius *= 0.998;
     if (p.radius > 0.5) {
+        // This means that the branch continues on
         nextParticles.push(p);
         let splitCutoff = Math.min(0.005, 1.0 / (p.radius * 10));
         if (Math.random() < splitCutoff) {
+            // And this means that it splits to become two branches
             nextParticles.push({
                 x: p.x,
                 y: p.y,
