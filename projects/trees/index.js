@@ -14,7 +14,7 @@ window.onload = function() {
     ctx = canvas.getContext('2d');
     ctx.fillStyle = 'rgb(255,255,200)';
     ctx.fillRect(0, 0, width, height);
-    mainLoop([create()]);
+    setTimeout(() => mainLoop([create()]), 5000);
 };
 
 function mainLoop(particles) {
