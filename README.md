@@ -1,3 +1,3 @@
 # code-art
 
-[davy.wtf/code-art](http://davy.wtf/code-art)
+[https://wybiral.github.io/code-art/](https://wybiral.github.io/code-art/)
