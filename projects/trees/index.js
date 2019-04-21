@@ -1,4 +1,4 @@
-// That's right... I'm using gobals... *gasp*
+// That's right... I'm using globals... *gasp*
 let width;
 let height;
 let canvas;
