@@ -26,7 +26,7 @@ window.onload = () => {
     document.body.appendChild(video);
     // Assign user media to video and start loop
     navigator.getUserMedia({video: true}, stream => {
-        video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
         video.play();
         loop();
     }, () => {});
