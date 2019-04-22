@@ -25,11 +25,11 @@ window.onload = () => {
     video.height = canvas.height;
     document.body.appendChild(video);
     // Assign user media to video and start loop
-    navigator.getUserMedia({video: true}, stream => {
+    navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
         video.srcObject = stream;
         video.play();
         loop();
-    }, () => {});
+    });
     // Flag for mirror image
     let mirror = false;
     // Loop forever
