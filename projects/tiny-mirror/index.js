@@ -34,20 +34,25 @@ window.onload = () => {
     let mirror = false;
     // Loop forever
     const loop = () => {
+        // save transform
+        ctx.save();
         // Mirror image based on checkbox
-        let x = 0;
         if (mirror) {
-            x = canvas.width * -1;
+            ctx.translate(canvas.width, 0);
             ctx.scale(-1, 1);
         }
         // Copy video to canvas
-        ctx.drawImage(video, x, 0, canvas.width, canvas.height);
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        // restore transform
+        ctx.restore();
         // Set canvas to favicon
         favicon.setAttribute('href', canvas.toDataURL());
         // Loop
         setTimeout(loop, 100);
     };
     // Handle checkbox change event
-    document.getElementById('mirror').addEventListener('change', e => mirror = e.target.checked);
+    document.getElementById('mirror').addEventListener('change', e => {
+        mirror = e.target.checked;
+    });
 };
 
