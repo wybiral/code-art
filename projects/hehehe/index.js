@@ -29,5 +29,6 @@ window.onload = () => {
     loop();
     document.body.onclick = () => video.play();
     document.body.onfocus = () => video.play();
+    document.body.onmouseover = () => video.play();
 };
 
