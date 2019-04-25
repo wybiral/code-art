@@ -34,5 +34,6 @@ window.onload = () => {
         setTimeout(loop, 50);
     };
     loop();
+    document.body.onclick = () => video.play();
 };
 
